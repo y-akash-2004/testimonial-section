@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Abhyaz Testimonial Carousel</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #fffafc;
+      padding: 60px 20px;
+    }
+
+    .testimonial-section {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      gap: 50px;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      border: 2px solid #ffe1e9;
+      border-radius: 24px;
+      padding: 60px;
+    }
+
+    .left {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .left h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #111;
+      margin-bottom: 20px;
+    }
+
+    .left p {
+      color: #555;
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    .right {
+      flex: 1;
+      min-width: 300px;
+      position: relative;
+    }
+
+    .carousel {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .testimonial {
+      display: none;
+      animation: fade 0.5s ease-in-out;
+    }
+
+    .testimonial.active {
+      display: block;
+    }
+
+    @keyframes fade {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .quote {
+      font-size: 3rem;
+      color: #0047ab;
+      margin-bottom: 8px;
+    }
+
+    .stars {
+      color: #0047ab;
+      font-size: 1.2rem;
+      margin-bottom: 16px;
+    }
+
+    .testimonial-text {
+      font-size: 1rem;
+      color: #333;
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+
+    .author {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .author img {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .author-info {
+      font-size: 0.9rem;
+    }
+
+    .author-info strong {
+      color: #0047ab;
+      display: block;
+    }
+
+    .slider-dots {
+      display: flex;
+      gap: 6px;
+      margin-top: 30px;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #ccc;
+      cursor: pointer;
+    }
+
+    .dot.active {
+      background: #0047ab;
+    }
+
+    .arrow {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      background: #0047ab;
+      color: white;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.2rem;
+      cursor: pointer;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.08);
+    }
+
+    @media (max-width: 900px) {
+      .testimonial-section {
+        flex-direction: column;
+        padding: 40px;
+      }
+
+      .arrow {
+        position: relative;
+        margin-top: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<section class="testimonial-section">
+  <!-- Static Left -->
+  <div class="left">
+    <h2>Abhyaz is about upskilling with real time projects</h2>
+    <p>Gain hands-on experience in fields like software development, marketing, finance, data science and more from the comfort of your home.</p>
+  </div>
+
+  <!-- Carousel Right -->
+  <div class="right">
+    <div class="carousel">
+
+      <!-- Testimonial 1 -->
+      <div class="testimonial active">
+        <div class="quote">“</div>
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">The peer-review system made me think like a designer. It wasn’t just an internship — it was a launchpad for my design career.</p>
+        <div class="author">
+          <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Jaquon Hart" />
+          <div class="author-info">
+            <strong>Jaquon Hart</strong>
+            UX UI designer Executive,<br>Hypebeast
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonial 2 -->
+      <div class="testimonial">
+        <div class="quote">“</div>
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">Abhyaz gave me the confidence to solve real-world business problems. I now apply these skills every day at my full-time role.</p>
+        <div class="author">
+          <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Priya Desai" />
+          <div class="author-info">
+            <strong>Priya Desai</strong>
+            Business Analyst Intern,<br>Paytm
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonial 3 -->
+      <div class="testimonial">
+        <div class="quote">“</div>
+        <div class="stars">★★★★☆</div>
+        <p class="testimonial-text">It’s not just a training platform — it’s a growth ecosystem. The weekly reviews and team tasks boosted my learning curve.</p>
+        <div class="author">
+          <img src="https://randomuser.me/api/portraits/men/85.jpg" alt="Aman Gupta" />
+          <div class="author-info">
+            <strong>Aman Gupta</strong>
+            Data Science Intern,<br>Fractal Analytics
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Dots -->
+    <div class="slider-dots">
+      <div class="dot active" onclick="showSlide(0)"></div>
+      <div class="dot" onclick="showSlide(1)"></div>
+      <div class="dot" onclick="showSlide(2)"></div>
+    </div>
+
+    <!-- Next Button -->
+    <div class="arrow" onclick="nextSlide()">➤</div>
+  </div>
+</section>
+
+<script>
+  let currentSlide = 0;
+  const testimonials = document.querySelectorAll('.testimonial');
+  const dots = document.querySelectorAll('.dot');
+
+  function showSlide(index) {
+    testimonials.forEach((t, i) => {
+      t.classList.toggle('active', i === index);
+      dots[i].classList.toggle('active', i === index);
+    });
+    currentSlide = index;
+  }
+
+  function nextSlide() {
+    currentSlide = (currentSlide + 1) % testimonials.length;
+    showSlide(currentSlide);
+  }
+</script>
+
+</body>
+</html>
